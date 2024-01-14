@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiShoppingBag } from 'react-icons/fi';
+
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMoon } from 'react-icons/io5';
 import { MdOutlineWbSunny } from 'react-icons/md';
 import { SlHandbag } from 'react-icons/sl';
+import { BsPencilSquare } from 'react-icons/bs';
+import { FaShopware } from 'react-icons/fa';
 
-import { BsFillPencilFill } from 'react-icons/bs';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
@@ -19,7 +20,7 @@ const Navbar = () => {
           </label>
           <h1 className={styles.title}>
             <Link to="/" className={styles.home}>
-              React Shop
+              <FaShopware className={styles.home__icon} /> React Shop
             </Link>
           </h1>
           <nav className={styles.header__item}>
@@ -51,7 +52,7 @@ const Navbar = () => {
             </div>
           </div>
           <Link to="/products/new">
-            <BsFillPencilFill className={styles.rightItem__pencil} />
+            <BsPencilSquare className={styles.rightItem__pencil} />
           </Link>
           <button className={styles.logInBtn}>
             <span>Login</span>

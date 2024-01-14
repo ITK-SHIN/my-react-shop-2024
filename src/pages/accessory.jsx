@@ -1,7 +1,7 @@
 import React from 'react';
 
-const accessory = () => {
+const Accessory = () => {
   return <div>accessory</div>;
 };
 
-export default accessory;
+export default Accessory;

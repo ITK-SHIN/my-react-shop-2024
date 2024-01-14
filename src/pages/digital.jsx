@@ -1,7 +1,7 @@
 import React from 'react';
 
-const digital = () => {
+const Digital = () => {
   return <div>digital</div>;
 };
 
-export default digital;
+export default Digital;
