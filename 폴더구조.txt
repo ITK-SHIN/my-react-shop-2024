@@ -1,0 +1,10 @@
+src
+	components [리액트 컴포넌트들]
+	pages [라우팅에 필요한 페이지 요소들]
+		AllProduct.jsx
+		Home.jsx
+		MyCart.jsx
+		NewProduct.jsx
+		NotFound.jsx
+		ProductDetail.jsx
+		
