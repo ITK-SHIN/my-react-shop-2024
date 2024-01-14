@@ -52,9 +52,10 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  width: 120px;
+  width: 140px;
   line-height: 30px;
   margin-right: 5px;
+  font-size: 1.3rem;
 }
 
 .home__icon {
@@ -64,7 +65,7 @@
 }
 
 .header__item {
-  width: fit-content;
+  width: max-content;
   display: flex;
   justify-content: space-between;
 }
@@ -200,15 +201,21 @@
 }
 
 @media screen and (max-width: 430px) {
-  .rightItem__pencil {
-    display: none;
+  .leftBox {
+    width: 140px;
   }
+
   .home__icon {
     display: none;
   }
 
   .home {
-    width: 90px;
+    width: 140px;
+    margin-right: 0px;
+  }
+
+  .rightItem__pencil {
+    display: none;
   }
 
   .logInBtn {
