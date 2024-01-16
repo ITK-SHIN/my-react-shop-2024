@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -9,8 +9,23 @@ import { BsPencilSquare } from 'react-icons/bs';
 import { FaShopware } from 'react-icons/fa';
 
 import styles from './Navbar.module.css';
+import { login, logout } from '../api/firebase';
 
 const Navbar = () => {
+  const [user, setUser] = useState();
+
+  useEffect(() => console.log('Navbar update'));
+
+  const handleLogin = () => {
+    login().then((user) => setUser(user));
+  };
+
+  const handleLogout = () => {
+    logout().then((user) => setUser(user));
+  };
+
+  console.log(user);
+
   return (
     <header className={styles.header}>
       <div className={styles.header__wrapper}>
@@ -54,9 +69,16 @@ const Navbar = () => {
           <Link to="/products/new">
             <BsPencilSquare className={styles.rightItem__pencil} />
           </Link>
-          <button className={styles.logInBtn}>
-            <span>Login</span>
-          </button>
+          {!user && (
+            <button onClick={handleLogin} className={styles.logInBtn}>
+              <span>Login</span>
+            </button>
+          )}
+          {user && (
+            <button onClick={handleLogout} className={styles.logoutBtn}>
+              <span>Logout</span>
+            </button>
+          )}
           <Link to="/carts">
             <SlHandbag className={styles.cart} />
           </Link>
