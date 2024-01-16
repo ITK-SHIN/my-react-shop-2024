@@ -9,12 +9,17 @@ import { BsPencilSquare } from 'react-icons/bs';
 import { FaShopware } from 'react-icons/fa';
 
 import styles from './Navbar.module.css';
-import { login, logout } from '../api/firebase';
+import { login, logout, onUserStateChange } from '../api/firebase';
 
 const Navbar = () => {
   const [user, setUser] = useState();
 
-  useEffect(() => console.log('Navbar update'));
+  useEffect(() => {
+    onUserStateChange((user) => {
+      console.log(user);
+      setUser(user);
+    });
+  }, []);
 
   const handleLogin = () => {
     login().then((user) => setUser(user));
@@ -23,8 +28,6 @@ const Navbar = () => {
   const handleLogout = () => {
     logout().then((user) => setUser(user));
   };
-
-  console.log(user);
 
   return (
     <header className={styles.header}>
