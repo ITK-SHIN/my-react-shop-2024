@@ -225,7 +225,7 @@
   height: 1.3rem;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
   .sideMenu {
     display: block;
   }
@@ -237,15 +237,9 @@
   }
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 640px) {
   .searchBox {
     display: none;
-  }
-}
-
-@media screen and (max-width: 430px) {
-  .leftBox {
-    width: 140px;
   }
 
   .home__icon {
@@ -255,6 +249,12 @@
   .home {
     width: 140px;
     margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .leftBox {
+    width: 140px;
   }
 
   .rightItem__pencil {

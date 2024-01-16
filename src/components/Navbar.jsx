@@ -10,6 +10,7 @@ import { FaShopware } from 'react-icons/fa';
 
 import styles from './Navbar.module.css';
 import { login, logout, onUserStateChange } from '../api/firebase';
+import User from './User';
 
 const Navbar = () => {
   const [user, setUser] = useState();
@@ -64,6 +65,7 @@ const Navbar = () => {
           <Link to="/products/new">
             <BsPencilSquare className={styles.rightItem__pencil} />
           </Link>
+          {user && <User user={user} />}
           {!user && (
             <button onClick={login} className={styles.logInBtn}>
               <span>Login</span>
