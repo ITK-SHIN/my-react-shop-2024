@@ -22,11 +22,11 @@ const Navbar = () => {
   }, []);
 
   const handleLogin = () => {
-    login().then((user) => setUser(user));
+    login();
   };
 
   const handleLogout = () => {
-    logout().then((user) => setUser(user));
+    logout();
   };
 
   return (

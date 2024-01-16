@@ -22,23 +22,12 @@ const auth = getAuth();
 /*1.  Google 제공업체 객체의 인스턴스를 생성 */
 const provider = new GoogleAuthProvider();
 
-export async function login() {
-  return signInWithPopup(auth, provider)
-    .then((result) => {
-      //로그인 잘 됬을 경우 결과
-      const user = result.user;
-      return user;
-    })
-    .catch(console.error);
+export function login() {
+  signInWithPopup(auth, provider).catch(console.error);
 }
 
-export async function logout() {
-  return (
-    signOut(auth)
-      //로그아웃 시 null 리턴
-      .then(() => null)
-      .catch(console.error)
-  );
+export function logout() {
+  signOut(auth).catch(console.error);
 }
 
 export async function onUserStateChange(callback) {
