@@ -21,14 +21,6 @@ const Navbar = () => {
     });
   }, []);
 
-  const handleLogin = () => {
-    login();
-  };
-
-  const handleLogout = () => {
-    logout();
-  };
-
   return (
     <header className={styles.header}>
       <div className={styles.header__wrapper}>
@@ -73,12 +65,12 @@ const Navbar = () => {
             <BsPencilSquare className={styles.rightItem__pencil} />
           </Link>
           {!user && (
-            <button onClick={handleLogin} className={styles.logInBtn}>
+            <button onClick={login} className={styles.logInBtn}>
               <span>Login</span>
             </button>
           )}
           {user && (
-            <button onClick={handleLogout} className={styles.logoutBtn}>
+            <button onClick={logout} className={styles.logoutBtn}>
               <span>Logout</span>
             </button>
           )}
