@@ -9,18 +9,16 @@ import { BsPencilSquare } from 'react-icons/bs';
 import { FaShopware } from 'react-icons/fa';
 
 import styles from './Navbar.module.css';
-import { login, logout, onUserStateChange } from '../api/firebase';
+
 import User from './User';
+import { useAuthContext } from './contexts/AuthContext';
 
 const Navbar = () => {
-  const [user, setUser] = useState();
+  const { user, login, logout } = useAuthContext();
 
-  useEffect(() => {
-    onUserStateChange((user) => {
-      console.log(user);
-      setUser(user);
-    });
-  }, []);
+  const starangerClickCart = () => {
+    alert('로그인 후 이용해 주세요');
+  };
 
   return (
     <header className={styles.header}>
@@ -79,7 +77,7 @@ const Navbar = () => {
               <span>Logout</span>
             </button>
           )}
-          <Link to="/carts">
+          <Link to="/carts" onClick={!user && starangerClickCart}>
             <SlHandbag className={styles.cart} />
           </Link>
         </div>

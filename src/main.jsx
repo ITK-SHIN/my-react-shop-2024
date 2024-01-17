@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
-import './index.module.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import './index.module.css';
 
 import Home from './pages/Home.jsx';
 import NotFound from './pages/NotFound.jsx';
@@ -12,6 +12,7 @@ import MyCart from './pages/MyCart.jsx';
 import Fashion from './pages/Fashion.jsx';
 import Accessory from './pages/accessory.jsx';
 import Digital from './pages/digital.jsx';
+import ProtectedRoute from './pages/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,9 +24,23 @@ const router = createBrowserRouter([
       { path: '/fashion', element: <Fashion /> },
       { path: '/accessory', element: <Accessory /> },
       { path: '/digital', element: <Digital /> },
-      { path: '/products/new', element: <NewProduct /> },
+      {
+        path: '/products/new',
+        element: (
+          <ProtectedRoute requireAdmin>
+            <NewProduct />
+          </ProtectedRoute>
+        ),
+      },
       { path: './products/id', element: <ProductDetail /> },
-      { path: '/carts', element: <MyCart /> },
+      {
+        path: '/carts',
+        element: (
+          <ProtectedRoute>
+            <MyCart />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);
