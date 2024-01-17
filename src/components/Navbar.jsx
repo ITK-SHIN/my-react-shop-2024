@@ -62,9 +62,12 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <Link to="/products/new">
-            <BsPencilSquare className={styles.rightItem__pencil} />
-          </Link>
+          {user && user.isAdmin && (
+            <Link to="/products/new">
+              <BsPencilSquare className={styles.rightItem__pencil} />
+            </Link>
+          )}
+
           {user && <User user={user} />}
           {!user && (
             <button onClick={login} className={styles.logInBtn}>
