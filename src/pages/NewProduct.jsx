@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './NewProduct.module.css';
 import Button from '../components/Ui/Button.jsx';
+import { uploadImage } from '../api/uploader.js';
 
 const NewProduct = () => {
   const [product, setProduct] = useState({});
@@ -9,14 +10,11 @@ const NewProduct = () => {
   const handleChange = (e) => {
     //e.target이 file인경우, input요소의 files프로퍼티에 fileList객체가 넘어온다.
     const { name, value, files } = e.target;
-    console.dir(e.target);
+
     if (name === 'file') {
       {
-        console.log(files[0]);
-        console.log(files);
         setFile(files && files[0]);
 
-        console.log(files[0]);
         return;
       }
     }
@@ -26,6 +24,9 @@ const NewProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    uploadImage(file).then((url) => {
+      console.log(url);
+    });
   };
 
   return (
