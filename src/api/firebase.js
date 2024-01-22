@@ -6,13 +6,15 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getDatabase, ref, child, get } from 'firebase/database';
+import { getDatabase, ref, set, get } from 'firebase/database';
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
 };
+
+import { v4 as uuid } from 'uuid';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -52,5 +54,21 @@ function adminUser(user) {
     //admin이 존재하지 않거나, 네트워크를 잘 받아오지 못한 경우, user 정보를 return 해 준다.
     // 그러면 admin이라는 데이터가 없기 때문에, admin이 아닌 것으로 간주될 것이다.
     return user;
+  });
+}
+
+export async function addNewProduct(product, imageUrl) {
+  const id = uuid();
+  // products의 id라는 키에 내 제품의 정보를 등록할 것.
+  set(ref(database, `products/${id}`), {
+    ...product,
+    id,
+    //price는 문자열 형태로 받기 때문에 number 타입으로 저장하기 위해서 parseInt 사용
+    // 이렇게 해야 데이터 베이스에 숫자로 저장된다.
+    price: parseInt(product.price),
+    image: imageUrl, // image 키에 imageUrl 등록
+    //options
+    // 배열 형태로 저장하기 위해서 split 함수 사용
+    options: product.options.split(','),
   });
 }

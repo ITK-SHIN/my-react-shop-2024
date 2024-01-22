@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './NewProduct.module.css';
 import Button from '../components/Ui/Button.jsx';
 import { uploadImage } from '../api/uploader.js';
+import { addNewProduct } from '../api/firebase.js';
 
 const NewProduct = () => {
   const [product, setProduct] = useState({});
@@ -24,13 +25,18 @@ const NewProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // 제품의 사진을 Cloudinary에 업로드 하고 URL을 획득
     uploadImage(file).then((url) => {
-      console.log(url);
+      // firebase에 새로운 제품을 추가함
+      console.log(product);
+      addNewProduct(product, url);
     });
   };
 
   return (
     <section className="topMargin">
+      {file && <img src={URL.createObjectURL(file)} alt="local file" />}
       <form onSubmit={handleSubmit} className={styles.form}>
         <h2 className={styles.title}>새로운 제품 등록</h2>
         {/* <h2 className="text-2xl font-bold my-4">새로운 제품 등록</h2> */}
