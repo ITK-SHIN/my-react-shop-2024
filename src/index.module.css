@@ -1,9 +1,14 @@
 @import './reset.css';
 
+body {
+  max-width: 1500px;
+  height: 200vh;
+}
+
 :global .white {
   color: #ffffff;
 }
 
-body {
-  max-width: 200%;
+:global .topMargin {
+  margin-top: 68px;
 }
