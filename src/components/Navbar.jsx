@@ -29,18 +29,18 @@ const Navbar = () => {
           </label>
           <h1 className={styles.title}>
             <Link to="/" className={styles.home}>
-              <FaShopware className={styles.home__icon} /> React Shop
+              <FaShopware className={styles.home__icon} /> Marvel Shop
             </Link>
           </h1>
           <nav className={styles.header__item}>
-            <Link to="/fashion" className={`${styles.fashion}`}>
-              패션
+            <Link to="/ironman" className={`${styles.fashion}`}>
+              Iron
             </Link>
-            <Link to="/accessory" className={styles.accessory}>
-              액세서리
+            <Link to="/spiderman" className={styles.accessory}>
+              Spider
             </Link>
-            <Link to="/digital" className={styles.digital}>
-              디지털
+            <Link to="/captain" className={styles.digital}>
+              Captain
             </Link>
           </nav>
         </div>

@@ -4,16 +4,11 @@
   box-sizing: border-box;
 }
 
-section {
-  margin-top: top-margin;
-  text-align: center;
-  min-width: 400px;
-}
-
 .title {
   font-size: 1.5rem;
   line-height: 3rem;
   font-weight: 700;
+  color: var(--color-text-white);
 }
 
 .form {
@@ -25,8 +20,18 @@ section {
 input {
   padding: 1rem;
   margin: 0.25rem;
-  border: 1px solid rgb(202, 202, 202);
+  border: 2px solid var(--border-input);
   border-radius: 5px;
+}
+
+.image {
+  width: 20rem;
+  margin-top: 10px;
+  box-shadow: 3px 3px 15px var(--color-accent);
+}
+
+.image:hover {
+  box-shadow: 0 6px 28px red, 0 5px 5px red;
 }
 
 /* 등록 버튼 CSS */
@@ -75,3 +80,8 @@ input {
   );
   box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
 }
+
+/* .uploadBtn {
+  background-color: gray;
+}
+ */

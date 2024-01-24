@@ -60,7 +60,7 @@ function adminUser(user) {
 export async function addNewProduct(product, imageUrl) {
   const id = uuid();
   // products의 id라는 키에 내 제품의 정보를 등록할 것.
-  set(ref(database, `products/${id}`), {
+  return set(ref(database, `products/${id}`), {
     ...product,
     id,
     //price는 문자열 형태로 받기 때문에 number 타입으로 저장하기 위해서 parseInt 사용
@@ -70,5 +70,14 @@ export async function addNewProduct(product, imageUrl) {
     //options
     // 배열 형태로 저장하기 위해서 split 함수 사용
     options: product.options.split(','),
+  });
+}
+
+export async function getProducts() {
+  return get(ref(database, 'products')).then((snapshot) => {
+    if (snapshot.exists()) {
+      return Object.values(snapshot.val()); // 객체의 value들만 가져오기
+    }
+    return []; // snapshot이 없다면 빈 배열 반환
   });
 }

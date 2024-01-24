@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import './index.module.css';
+import './index.css';
 
 import App from './App.jsx';
 import Home from './pages/Home.jsx';
@@ -9,10 +9,11 @@ import NotFound from './pages/NotFound.jsx';
 import NewProduct from './pages/NewProduct.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 import MyCart from './pages/MyCart.jsx';
-import Fashion from './pages/Fashion.jsx';
-import Accessory from './pages/accessory.jsx';
-import Digital from './pages/digital.jsx';
+
 import ProtectedRoute from './pages/ProtectedRoute.jsx';
+import Captain from './pages/Captain.jsx';
+import Ironman from './pages/IronMan.jsx';
+import SpiderMan from './pages/SpiderMan.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,9 +22,9 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, path: '/', element: <Home /> },
-      { path: '/fashion', element: <Fashion /> },
-      { path: '/accessory', element: <Accessory /> },
-      { path: '/digital', element: <Digital /> },
+      { path: '/ironman', element: <Ironman /> },
+      { path: '/spiderman', element: <SpiderMan /> },
+      { path: '/captain', element: <Captain /> },
       {
         path: '/products/new',
         element: (

@@ -1,0 +1,41 @@
+@import './reset.css';
+
+:root {
+  --color-bg-dark1: #191d24;
+  --color-bg-dark2: #2a303c;
+  --color-bg-dark3: #242933;
+  --color-bg: #fdffd;
+
+  --color-gray: #d1d1d1;
+  --color-text-white: #ffffff;
+
+  --color-accent: #f16e03;
+
+  --border-input: rgb(226, 128, 48);
+  --margin-header: 100px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: var(--color-bg-dark2);
+}
+
+#root {
+  width: 100%;
+}
+
+:global .white {
+  color: #ffffff;
+}
+
+:global .topMargin {
+  margin-top: 100px;
+}
+
+section {
+  margin-top: var(--margin-header);
+  text-align: center;
+  min-width: 400px;
+}

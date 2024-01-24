@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import styles from './NewProduct.module.css';
-import Button from '../components/Ui/Button.jsx';
 import { uploadImage } from '../api/uploader.js';
 import { addNewProduct } from '../api/firebase.js';
 
 const NewProduct = () => {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState();
+  const [isUploading, setIsUploading] = useState(false); // 업로드 중/ 아닌지 상태
+  const [success, setSuccess] = useState(); // 업로드 성공/ 실패 상태
 
   const handleChange = (e) => {
     //e.target이 file인경우, input요소의 files프로퍼티에 fileList객체가 넘어온다.
@@ -25,20 +26,36 @@ const NewProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsUploading(true);
 
     // 제품의 사진을 Cloudinary에 업로드 하고 URL을 획득
-    uploadImage(file).then((url) => {
-      // firebase에 새로운 제품을 추가함
-      console.log(product);
-      addNewProduct(product, url);
-    });
+    uploadImage(file)
+      .then((url) => {
+        // firebase에 새로운 제품을 추가함
+        console.log(product);
+        addNewProduct(product, url) //
+          .then(() => {
+            setSuccess(' 성공적으로 제품이 추가되었습니다. ');
+            setTimeout(() => {
+              setSuccess(null);
+            }, 5000); // 일정 시간이 지나면 성공 문구 안보이도록
+          });
+      })
+      .finally(() => setIsUploading(false)); // 무조건 적으로 호출
   };
 
   return (
     <section className="topMargin">
-      {file && <img src={URL.createObjectURL(file)} alt="local file" />}
+      <h2 className={styles.title}>새로운 제품 등록</h2>
+      {file && (
+        <img
+          className={styles.image}
+          src={URL.createObjectURL(file)}
+          alt="제품 이미지"
+        />
+      )}
       <form onSubmit={handleSubmit} className={styles.form}>
-        <h2 className={styles.title}>새로운 제품 등록</h2>
+        {success && <p>✅ {success}</p>}
         {/* <h2 className="text-2xl font-bold my-4">새로운 제품 등록</h2> */}
         <input
           type="file"
@@ -83,15 +100,18 @@ const NewProduct = () => {
           type="text"
           name="options"
           value={product.options ?? ''}
-          placeholder="옵션들 (콤마(,)로 구분"
+          placeholder="옵션들 ( 콤마(,)로 구분 )"
           required
           onChange={handleChange}
         />
 
         <button
-          className={`${styles.buttons} ${styles['btn-hover']} ${styles['color-2']}`}
+          className={`${styles.buttons} ${styles['btn-hover']} ${
+            styles['color-2']
+          } ${isUploading && styles.uploadBtn}`}
+          disabled={isUploading} //isUploading이 true인 경우 버튼 비활성화
         >
-          제품 등록하기
+          {isUploading ? '업로드중...' : '제품 등록하기'}
         </button>
       </form>
     </section>

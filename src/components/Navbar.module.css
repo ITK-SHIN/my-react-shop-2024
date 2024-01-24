@@ -3,11 +3,13 @@
   top: 0;
   left: 0;
 
+  margin: 0 auto;
+
   width: 100%;
   height: 60px;
-  background-color: #191d24;
+  background-color: var(--color-bg-dark1);
   z-index: 20;
-  color: white;
+  color: var(--color-text-white);
   padding: 8px 4px;
 }
 
@@ -18,7 +20,7 @@
   height: 48px;
   padding: 0 16px;
   margin-right: 16px;
-  color: white;
+  color: var(--color-text-white);
   align-items: center;
 }
 
@@ -30,7 +32,7 @@
 }
 
 .sideMenu {
-  color: white;
+  color: var(--color-text-white);
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
@@ -43,16 +45,16 @@
 }
 
 .title {
-  color: white;
+  color: var(--color-text-white);
 }
 
 .home {
-  color: white;
+  color: var(--color-text-white);
   text-decoration-line: none;
   font-weight: 600;
   display: flex;
   align-items: center;
-  width: 140px;
+  width: 9rem;
   line-height: 30px;
   margin-right: 5px;
   font-size: 1.3rem;
@@ -73,7 +75,7 @@
 .fashion,
 .accessory,
 .digital {
-  color: white;
+  color: var(--color-text-white);
   text-decoration-line: none;
   margin-right: 10px;
 }
@@ -123,12 +125,12 @@
   outline: none;
   padding-left: 10px;
   background-color: rgb(233, 233, 233);
-  border-right: none;
+  border: none;
   border-radius: 6px;
 }
 
 .rightItem__pencil {
-  color: white;
+  color: var(--color-text-white);
   width: 1.3rem;
   height: 1.3rem;
 }
@@ -220,7 +222,7 @@
 }
 
 .cart {
-  color: white;
+  color: var(--color-text-white);
   width: 1.3rem;
   height: 1.3rem;
 }
