@@ -4,15 +4,24 @@
   --color-bg-dark1: #191d24;
   --color-bg-dark2: #2a303c;
   --color-bg-dark3: #242933;
+
   --color-bg: #fdffd;
+  --color-card-bg: #374151;
+
+  --color-hover-bg: #353a42;
 
   --color-gray: #d1d1d1;
   --color-text-white: #ffffff;
+  --color-text-gray: #a6adbb;
 
   --color-accent: #f16e03;
 
   --border-input: rgb(226, 128, 48);
-  --margin-header: 100px;
+
+  --margin-header: 70px;
+  --margin-bottom: 55px;
+
+  --font-size-card: 1.5rem;
 }
 
 body {
@@ -36,6 +45,11 @@ body {
 
 section {
   margin-top: var(--margin-header);
+  margin-bottom: var(--margin-bottom);
   text-align: center;
   min-width: 400px;
+}
+
+section:last-child {
+  padding-bottom: 50px;
 }

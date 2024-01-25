@@ -72,12 +72,20 @@
   justify-content: space-between;
 }
 
-.fashion,
-.accessory,
-.digital {
+.ironLink,
+.spiderLink,
+.captainLink {
   color: var(--color-text-white);
   text-decoration-line: none;
   margin-right: 10px;
+  padding: 0.75rem;
+}
+
+.ironLink:hover,
+.spiderLink:hover,
+.captainLink:hover {
+  background-color: var(--color-hover-bg);
+  border-radius: 5px;
 }
 
 /* 우측 박스  */

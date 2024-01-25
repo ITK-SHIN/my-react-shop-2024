@@ -2,8 +2,15 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { getProducts } from '../api/firebase';
 import ProductCard from './ProductCard';
+import PropTypes from 'prop-types';
+import ProductCardList from './ProductCardList';
+import styles from './Products.module.css';
 
-const Products = () => {
+function compare(key) {
+  return (a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
+}
+
+const Products = ({ category }) => {
   const {
     isLoading,
     error,
@@ -13,12 +20,121 @@ const Products = () => {
     queryFn: getProducts,
   });
 
+  const filterIron =
+    products && products.filter((product) => product.category === 'iron');
+  const filterSpider =
+    products && products.filter((product) => product.category === 'spider');
+  const filterCaptain =
+    products && products.filter((product) => product.category === 'captain');
+
+  if (category === 'filter_iron') {
+    return (
+      <>
+        {isLoading && <p>Loading 중 입니다...</p>}
+        {error && <p>{error}</p>}
+        <section>
+          {products && <ProductCardList products={filterIron} />}
+        </section>
+      </>
+    );
+  }
+
+  if (category === 'iron') {
+    return (
+      <>
+        {console.log(products.filter((product) => product.category === 'iron'))}
+        {isLoading && <p>Loading 중 입니다...</p>}
+        {error && <p>{error}</p>}
+        <section>
+          <ul className={styles.productsBox}>
+            {products &&
+              products
+                .filter((product) => product.category === 'iron')
+                .sort(compare('title'))
+                .map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+          </ul>
+        </section>
+      </>
+    );
+  }
+
+  if (category === 'filter_spider') {
+    return (
+      <>
+        {isLoading && <p>Loading 중 입니다...</p>}
+        {error && <p>{error}</p>}
+        <section>
+          {products && <ProductCardList products={filterSpider} />}
+        </section>
+      </>
+    );
+  }
+
+  if (category === 'spider') {
+    return (
+      <>
+        {console.log(
+          products.filter((product) => product.category === 'spider')
+        )}
+        {isLoading && <p>Loading 중 입니다...</p>}
+        {error && <p>{error}</p>}
+        <section>
+          <ul className={styles.productsBox}>
+            {products &&
+              products
+                .filter((product) => product.category === 'spider')
+                .sort(compare('title'))
+                .map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+          </ul>
+        </section>
+      </>
+    );
+  }
+
+  if (category === 'filter_captain') {
+    return (
+      <>
+        {isLoading && <p>Loading 중 입니다...</p>}
+        {error && <p>{error}</p>}
+        <section>
+          {products && <ProductCardList products={filterCaptain} />}
+        </section>
+      </>
+    );
+  }
+
+  if (category === 'captain') {
+    return (
+      <>
+        {console.log(
+          products.filter((product) => product.category === 'captain')
+        )}
+        {isLoading && <p>Loading 중 입니다...</p>}
+        {error && <p>{error}</p>}
+        <section>
+          <ul className={styles.productsBox}>
+            {products &&
+              products
+                .filter((product) => product.category === 'captain')
+                .sort(compare('title'))
+                .map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+          </ul>
+        </section>
+      </>
+    );
+  }
+
   return (
     <>
       {isLoading && <p>Loading 중 입니다...</p>}
       {error && <p>{error}</p>}
       <ul>
-        {console.log(products)}
         {products &&
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
@@ -29,3 +145,7 @@ const Products = () => {
 };
 
 export default Products;
+
+Products.propTypes = {
+  category: PropTypes.string,
+};

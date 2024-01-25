@@ -33,13 +33,13 @@ const Navbar = () => {
             </Link>
           </h1>
           <nav className={styles.header__item}>
-            <Link to="/ironman" className={`${styles.fashion}`}>
+            <Link to="/ironman" className={`${styles.ironLink}`}>
               Iron
             </Link>
-            <Link to="/spiderman" className={styles.accessory}>
+            <Link to="/spiderman" className={styles.spiderLink}>
               Spider
             </Link>
-            <Link to="/captain" className={styles.digital}>
+            <Link to="/captain" className={styles.captainLink}>
               Captain
             </Link>
           </nav>

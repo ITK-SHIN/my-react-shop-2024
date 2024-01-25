@@ -1,7 +1,12 @@
 import React from 'react';
+import Products from '../components/Products';
 
 const Captain = () => {
-  return <div>Captain</div>;
+  return (
+    <>
+      <Products category="captain" />;
+    </>
+  );
 };
 
 export default Captain;
