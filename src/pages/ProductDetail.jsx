@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './ProductDetail.module.css';
+import { SlHandbag } from 'react-icons/sl';
 
 const ProductDetail = () => {
   const {
@@ -25,7 +26,11 @@ const ProductDetail = () => {
       </div>
       <section className={styles.productFullBox}>
         <div>
-          <img className={styles.image} src={image} alt={title}></img>
+          <img
+            className={`${styles.image} ${styles.card}`}
+            src={image}
+            alt={title}
+          ></img>
         </div>
 
         <div className={styles.infoArea}>
@@ -89,18 +94,18 @@ const ProductDetail = () => {
             <button
               className={`${styles.button_box1} ${styles.btn}  ${styles['btn-hover']} ${styles['color-2']} `}
             >
-              바로 구매하기
+              ✔ 바로 구매하기
             </button>
             <button
               className={`${styles.button_box2} ${styles.btn}  ${styles['btn-hover']} ${styles['color-2']} `}
             >
-              장바구니 담기
+              <SlHandbag className={styles.cart} /> 장바구니 담기
             </button>
             <button
               onClick={handleClick}
               className={`${styles.button_box3} ${styles.btn}  ${styles['btn-hover']} ${styles['color-2']} `}
             >
-              장바구니로 이동
+              🚀 장바구니로 이동
             </button>
           </div>
         </div>
