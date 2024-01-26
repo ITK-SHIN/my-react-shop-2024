@@ -13,10 +13,12 @@
   width: 20rem;
   padding-bottom: 2rem;
   cursor: pointer;
+  transition: all ease 1s;
 }
 
 .card:hover {
   box-shadow: 0 6px 28px red, 0 5px 5px red;
+  transform: scale(110%) rotate(1deg);
 }
 
 .img {

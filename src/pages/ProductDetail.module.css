@@ -1,0 +1,136 @@
+.category_name {
+  margin-top: var(--margin-header);
+  margin-left: 30px;
+  color: var(--color-text-gray);
+}
+
+.productFullBox {
+  display: flex;
+  justify-content: center;
+  color: var(--color-text-gray);
+  margin-left: 10rem;
+  margin-right: 10rem;
+  width: 80vw;
+}
+
+.image {
+  width: 20rem;
+}
+
+.infoArea {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin-left: 5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+
+.description_title {
+  margin-bottom: 10px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 15px;
+}
+
+.price_box {
+  margin: 0 auto;
+}
+
+.option_table {
+  width: 100%;
+}
+
+.option_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select_box {
+  display: block;
+  width: 80%;
+  padding: 5px 10px;
+  border: none;
+}
+
+.button_box {
+  display: grid;
+  grid-template-areas:
+    'a a a'
+    'b b c';
+  gap: 10px;
+  width: 100%;
+}
+
+.button_box1 {
+  grid-area: a;
+  text-align: center;
+}
+
+.button_box2 {
+  grid-area: b;
+}
+.button_box3 {
+  grid-area: c;
+}
+
+.buttons {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn-hover {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+
+  height: 45px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 10px;
+
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.color-2 {
+  background-image: linear-gradient(
+    to right,
+    #f5ce62,
+    #e43603,
+    #fa7199,
+    #e85a19
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}

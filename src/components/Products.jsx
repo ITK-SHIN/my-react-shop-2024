@@ -110,9 +110,6 @@ const Products = ({ category }) => {
   if (category === 'captain') {
     return (
       <>
-        {console.log(
-          products.filter((product) => product.category === 'captain')
-        )}
         {isLoading && <p>Loading 중 입니다...</p>}
         {error && <p>{error}</p>}
         <section>
