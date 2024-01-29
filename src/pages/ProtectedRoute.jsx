@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { useAuthContext } from '../components/contexts/AuthContext';
+
+import { useAuthContext } from '../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children, requireAdmin }) => {

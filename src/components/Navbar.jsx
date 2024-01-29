@@ -11,7 +11,8 @@ import { FaShopware } from 'react-icons/fa';
 import styles from './Navbar.module.css';
 
 import User from './User';
-import { useAuthContext } from './contexts/AuthContext';
+import { useAuthContext } from '../contexts/AuthContext';
+import CartStatus from './CartStatus';
 
 const Navbar = () => {
   const { user, login, logout } = useAuthContext();
@@ -78,7 +79,7 @@ const Navbar = () => {
             </button>
           )}
           <Link to="/carts" onClick={!user && starangerClickCart}>
-            <SlHandbag className={styles.cart} />
+            <CartStatus />
           </Link>
         </div>
       </div>

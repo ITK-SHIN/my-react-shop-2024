@@ -6,7 +6,8 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getDatabase, ref, set, get } from 'firebase/database';
+import { getDatabase, ref, set, get, remove } from 'firebase/database';
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -80,4 +81,23 @@ export async function getProducts() {
     }
     return []; // snapshot이 없다면 빈 배열 반환
   });
+}
+
+// 특정 사용자의 카트 읽어오기
+export async function getCart(userId) {
+  return get(ref(database, `carts/${userId}`)) //
+    .then((snapshot) => {
+      const items = snapshot.val() || {};
+      return Object.values(items);
+    });
+}
+
+// 특정 사용자의 상품 추가/업데이트 하기
+export async function addOrUpdateToCart(userId, product) {
+  return set(ref(database, `carts/${userId}/${product.id}`), product);
+}
+
+// 특정 사용자의 상품 제거하기
+export async function removeFromCart(userId, productId) {
+  return remove(ref(database, `carts/${userId}/${productId}`));
 }

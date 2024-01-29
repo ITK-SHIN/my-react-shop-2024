@@ -56,6 +56,11 @@
   color: var(--color-brand);
 }
 
+.description_box {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(233, 175, 175, 0.2);
+}
+
 .description_title {
   margin-bottom: 10px;
 }
@@ -63,7 +68,8 @@
 table,
 th,
 td {
-  border: 1px solid black;
+  border-bottom: 1px solid rgba(233, 175, 175, 0.2);
+
   border-collapse: collapse;
 }
 th,
@@ -73,6 +79,11 @@ td {
 
 .price_box {
   margin: 0 auto;
+  width: 100%;
+}
+
+.price_table {
+  width: 100%;
 }
 
 .option_table {
@@ -157,4 +168,31 @@ td {
     #e85a19
   );
   box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+
+.btn-hover.color-3 {
+  background-image: linear-gradient(
+    to right,
+    #f5ce62,
+    #978985,
+    #b98e9b,
+    #e85a19
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+
+.cartsLink {
+  color: inherit;
+  text-decoration: none;
+}
+.btn-hover.color-4 {
+  background-image: linear-gradient(
+    to right,
+    #afaa9a,
+    #978985,
+    #b98e9b,
+    #968781
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  width: 100%;
 }

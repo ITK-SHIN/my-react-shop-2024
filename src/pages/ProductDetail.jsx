@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './ProductDetail.module.css';
 import { SlHandbag } from 'react-icons/sl';
+import { addOrUpdateToCart } from '../api/firebase';
+import { useAuthContext } from '../contexts/AuthContext';
 
 const ProductDetail = () => {
+  const { uid } = useAuthContext();
+
   const {
     state: {
       product: { id, image, title, description, category, price, options },
@@ -15,6 +19,8 @@ const ProductDetail = () => {
 
   const handleClick = (e) => {
     //장바구니에 추가하는 코드
+    const product = { id, image, title, price, option: selected, quantity: 1 };
+    addOrUpdateToCart(uid, product);
   };
 
   return (
@@ -38,13 +44,13 @@ const ProductDetail = () => {
             <h2 className={styles.title}>{title}</h2>
           </div>
 
-          <div>
+          <div className={styles.description_box}>
             <div className={styles.description_title}>[제품 설명]</div>
             <div>{description}</div>
           </div>
 
           <div className={styles.price_box}>
-            <table>
+            <table className={styles.price_table}>
               <tbody>
                 <tr>
                   <th scope="row">
@@ -62,7 +68,7 @@ const ProductDetail = () => {
                   <th scope="row">
                     <span>배송비</span>
                   </th>
-                  <td scope="row">₩2500 (10,0000원 이상 구매 시 무료)</td>
+                  <td scope="row">₩2500 (100,000원 이상 구매 시 무료)</td>
                 </tr>
               </tbody>
             </table>
@@ -82,7 +88,9 @@ const ProductDetail = () => {
                     >
                       {options &&
                         options.map((option, index) => (
-                          <option key={index}>{option}</option>
+                          <option key={index}>
+                            -[필수] 사이즈 선택 - <strong>{option}</strong>
+                          </option>
                         ))}
                     </select>
                   </span>
@@ -97,16 +105,18 @@ const ProductDetail = () => {
               ✔ 바로 구매하기
             </button>
             <button
-              className={`${styles.button_box2} ${styles.btn}  ${styles['btn-hover']} ${styles['color-2']} `}
+              onClick={handleClick}
+              className={`${styles.button_box2} ${styles.btn}  ${styles['btn-hover']} ${styles['color-3']} `}
             >
               <SlHandbag className={styles.cart} /> 장바구니 담기
             </button>
-            <button
-              onClick={handleClick}
-              className={`${styles.button_box3} ${styles.btn}  ${styles['btn-hover']} ${styles['color-2']} `}
-            >
-              🚀 장바구니로 이동
-            </button>
+            <Link to="/carts" className={styles.cartsLink}>
+              <button
+                className={`${styles.button_box3} ${styles.btn}  ${styles['btn-hover']} ${styles['color-4']} `}
+              >
+                🚀 장바구니로 이동
+              </button>
+            </Link>
           </div>
         </div>
       </section>

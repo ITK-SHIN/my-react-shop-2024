@@ -229,12 +229,6 @@
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
 
-.cart {
-  color: var(--color-text-white);
-  width: 1.3rem;
-  height: 1.3rem;
-}
-
 @media screen and (max-width: 768px) {
   .sideMenu {
     display: block;
