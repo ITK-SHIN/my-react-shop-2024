@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getCart } from '../api/firebase';
 import CartItem from '../components/CartItem';
 import PriceCard from '../components/PriceCard';
-import { BsFillPlusCircleFill } from 'react-icons/bs';
+import { ImPlus } from 'react-icons/im';
 import { FaEquals } from 'react-icons/fa';
 
 const SHIPPING = 3000;
@@ -27,28 +27,60 @@ const MyCart = () => {
       0
     );
 
+  // 시간 될때 모달로 만들기
+  const handleOrderClick = () => {
+    alert('정말로 구매하겠습니까?');
+  };
+
   return (
-    <section>
-      <p>나의 장바구니</p>
-      {!hasProducts && <p>장바구니에 상품이 없습니다.</p>}
-      {hasProducts && (
-        <>
-          <ul>
-            {products &&
-              products.map((products) => (
-                <CartItem key={products.id} product={products} uid={uid} />
-              ))}
-          </ul>
-          <div>
-            <PriceCard text="상품 총액" price={totalPrice} />
-            <BsFillPlusCircleFill />
-            <PriceCard text="배송액" price={SHIPPING} />
-            <FaEquals />
-            <PriceCard text="총가격" price={totalPrice + SHIPPING} />
-          </div>
-        </>
-      )}
-    </section>
+    <>
+      <p className={styles.title}>나의 장바구니</p>
+      <section className={styles.mycart_box}>
+        {!hasProducts && (
+          <p className={styles.noCart}>장바구니에 상품이 없습니다.</p>
+        )}
+        {hasProducts && (
+          <>
+            <ul>
+              {products &&
+                products.map((products) => (
+                  <CartItem key={products.id} product={products} uid={uid} />
+                ))}
+            </ul>
+
+            <div className={styles.productCard_box}>
+              <PriceCard
+                className={styles.productCard_item}
+                text="전체상품금액"
+                price={totalPrice}
+              />
+              <ImPlus
+                className={`${styles.productCard_icon} ${styles.productCard_item}`}
+              />
+              <PriceCard
+                className={styles.productCard_item}
+                text="총 배송비"
+                price={SHIPPING}
+              />
+              <FaEquals
+                className={`${styles.productCard_icon} ${styles.productCard_item}`}
+              />
+              <PriceCard
+                className={styles.productCard_item}
+                text="주문 금액"
+                price={totalPrice + SHIPPING}
+              />
+              <button
+                onClick={handleOrderClick}
+                className={`${styles.productCard_item} ${styles.button_box1} ${styles.btn}  ${styles['btn-hover']} ${styles['color-2']} `}
+              >
+                Marvel Shop 주문하기
+              </button>
+            </div>
+          </>
+        )}
+      </section>
+    </>
   );
 };
 
