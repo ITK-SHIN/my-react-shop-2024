@@ -14,6 +14,8 @@ import ProtectedRoute from './pages/ProtectedRoute.jsx';
 import Captain from './pages/Captain.jsx';
 import Ironman from './pages/IronMan.jsx';
 import SpiderMan from './pages/SpiderMan.jsx';
+import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
             <MyCart />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: '*',
+        element: <NotFound />,
       },
     ],
   },

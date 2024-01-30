@@ -1,0 +1,37 @@
+.NotFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #2a303c;
+  color: #a6adbb;
+  height: 100%;
+}
+
+.top {
+  margin-bottom: 0;
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.middle {
+  display: block;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.button {
+  margin-top: 2rem;
+  background-color: #661ae6;
+  border: none;
+  border-radius: 10px;
+}
+
+.link {
+  display: block;
+  padding: 2rem 3rem;
+  text-decoration: none;
+  font-size: 1.125rem;
+  color: var(--color-text-white);
+}
