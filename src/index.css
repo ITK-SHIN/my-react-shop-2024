@@ -26,15 +26,13 @@
 }
 
 body {
-  width: 100vw;
   height: 100vh;
-
   background-color: var(--color-bg-dark2);
 }
 
 #root {
   width: 100%;
-  height: 100vh;
+  height: 70%;
 }
 
 :global .white {

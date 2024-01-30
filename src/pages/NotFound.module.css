@@ -23,7 +23,7 @@
 
 .button {
   margin-top: 2rem;
-  background-color: #661ae6;
+  background-color: var(--color-brand);
   border: none;
   border-radius: 10px;
 }
