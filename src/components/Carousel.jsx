@@ -11,7 +11,8 @@ export default function CarouselBox(props) {
     {
       name: 'Iron Man',
       description: '아이언맨 슈트를 경험해 보세요',
-      image: '../../public/bg_img/ironMan_bg.jpg',
+      image:
+        'https://github.com/ITK-SHIN/my-react-shop-2024/blob/main/public/bg_img/ironMan_bg.jpg?raw=true',
       height: '800',
       width: '100%',
       link: '/ironman',
@@ -19,7 +20,8 @@ export default function CarouselBox(props) {
     {
       name: 'Spider Man',
       description: '스파이더맨 슈트와 함께 해보세요',
-      image: '../../public//bg_img/spider_bg.jpg',
+      image:
+        'https://github.com/ITK-SHIN/my-react-shop-2024/blob/main/public/bg_img/spider_bg.jpg?raw=true',
       height: '800',
       width: '100%',
       link: './spiderman',
@@ -27,7 +29,8 @@ export default function CarouselBox(props) {
     {
       name: 'Captain America',
       description: '캡틴 아메리카 슈트를 입어 보세요',
-      image: '../../public/bg_img/captain_bg.webp',
+      image:
+        'https://raw.githubusercontent.com/ITK-SHIN/my-react-shop-2024/main/public/bg_img/captain_bg.webp',
       height: '800',
       width: '100%',
       link: './captain',
@@ -45,13 +48,13 @@ export default function CarouselBox(props) {
             {next && (
               <img
                 className={styles.back_icon}
-                src="../../public/bg_img/arrow_forward.svg"
+                src="https://raw.githubusercontent.com/ITK-SHIN/my-react-shop-2024/9172551d40c68ff090e3f7f06820780fff5fc5bb/public/bg_img/arrow_forward.svg"
               />
             )}
             {prev && (
               <img
                 className={styles.back_icon}
-                src="../../public/bg_img/arrow_back.svg"
+                src="https://raw.githubusercontent.com/ITK-SHIN/my-react-shop-2024/9172551d40c68ff090e3f7f06820780fff5fc5bb/public/bg_img/arrow_back.svg"
               />
             )}
           </Button>

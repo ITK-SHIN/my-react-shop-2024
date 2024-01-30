@@ -5,7 +5,6 @@ import { Outlet } from 'react-router-dom';
 import { AuthContextProvider } from './contexts/AuthContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Footer from './components/Footer';
-import CarouselBox from './components/Carousel';
 
 const queryClient = new QueryClient();
 

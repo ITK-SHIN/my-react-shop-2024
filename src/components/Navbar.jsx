@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMoon } from 'react-icons/io5';
 import { MdOutlineWbSunny } from 'react-icons/md';
-import { SlHandbag } from 'react-icons/sl';
+
 import { BsPencilSquare } from 'react-icons/bs';
 import { FaShopware } from 'react-icons/fa';
 
