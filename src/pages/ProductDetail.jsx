@@ -27,7 +27,7 @@ const ProductDetail = () => {
     <>
       <div className={styles.category_name}>
         <span>
-          {category} > {title}
+          {category} ⇾ {title}
         </span>
       </div>
       <section className={styles.productFullBox}>

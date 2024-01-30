@@ -18,7 +18,7 @@ export default function CarouselBox(props) {
     },
     {
       name: 'Spider Man',
-      description: '스파이더맨 슈트를 입어 보세요',
+      description: '스파이더맨 슈트와 함께 해보세요',
       image: '../../public//bg_img/spider_bg.jpg',
       height: '800',
       width: '100%',
@@ -26,7 +26,7 @@ export default function CarouselBox(props) {
     },
     {
       name: 'Captain America',
-      description: '캡틴 아메리카 슈트를 입어보세요!',
+      description: '캡틴 아메리카 슈트를 입어 보세요',
       image: '../../public/bg_img/captain_bg.webp',
       height: '800',
       width: '100%',

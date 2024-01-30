@@ -282,4 +282,8 @@
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
     transform: translateX(-98%) translateY(-25%) rotate(45deg);
   }
+
+  .home {
+    font-size: 1.2rem;
+  }
 }

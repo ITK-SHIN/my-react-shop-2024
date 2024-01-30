@@ -13,7 +13,7 @@
 
 .product_card:first-child {
   border-top: 2px solid black;
-  margin-top: 6rem;
+
   flex-basis: 13rem;
 }
 

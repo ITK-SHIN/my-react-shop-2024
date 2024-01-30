@@ -4,8 +4,8 @@
 }
 
 .userImg {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin-right: 5px;
 }
@@ -15,10 +15,4 @@
   font-size: 0.8rem;
   display: none;
   line-height: 3px;
-}
-
-@media screen and (min-width: 768px) {
-  .displayName {
-    display: block;
-  }
 }
