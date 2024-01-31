@@ -1,0 +1,125 @@
+.carousel_paper {
+  position: relative;
+  width: 100vw;
+  margin-top: 0px;
+}
+
+.carousel_title {
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.carousel_text {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.CheckButton {
+  position: absolute;
+
+  top: 30rem;
+  left: 24rem;
+  color: 'white';
+  font-size: '30px';
+  transition: '200ms';
+  cursor: pointer;
+}
+
+.btn-hover {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  width: 10rem;
+  height: 3.5rem;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 15px;
+
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.color-2 {
+  background-image: linear-gradient(
+    to right,
+    #f5ce62,
+    #e43603,
+    #fa7199,
+    #e85a19
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+
+.side_btn {
+  width: 10rem;
+  height: 96%;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-text-white);
+  font-weight: 900;
+  width: inherit;
+  height: inherit;
+  line-height: 55px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .CheckButton {
+    position: absolute;
+
+    top: 35rem;
+    left: 8rem;
+
+    color: 'white';
+    font-size: '30px';
+    transition: '200ms';
+    cursor: pointer;
+  }
+
+  .carousel_title {
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--color-text-white);
+  }
+
+  .carousel_text {
+    position: absolute;
+    top: 55%;
+    left: 20%;
+    font-size: 1rem;
+    color: var(--color-text-white);
+  }
+
+  .side_btn {
+    width: 3rem;
+    height: 96%;
+  }
+}

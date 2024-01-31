@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import { AiOutlineMinusSquare, AiOutlinePlusSquare } from 'react-icons/ai';
 import { addOrUpdateToCart, removeFromCart } from '../api/firebase';

@@ -1,10 +1,9 @@
-import React from 'react';
 import styles from './MyCart.module.css';
 import { useAuthContext } from '../contexts/AuthContext';
 import { useQuery } from '@tanstack/react-query';
 import { getCart } from '../api/firebase';
 import CartItem from '../components/CartItem';
-import PriceCard from '../components/PriceCard';
+import PriceCard from '../components/Products/PriceCard';
 import { ImPlus } from 'react-icons/im';
 import { FaEquals } from 'react-icons/fa';
 

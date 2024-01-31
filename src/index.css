@@ -5,8 +5,8 @@
   --color-bg-dark2: #2a303c;
   --color-bg-dark3: #242933;
 
-  --color-bg: #fdffd;
-  --color-card-bg: #374151;
+  --color-price-card-bg: #c5954d;
+  --color-product-card-bg: #374151;
 
   --color-hover-bg: #353a42;
 
@@ -23,6 +23,35 @@
   --margin-bottom: 55px;
 
   --font-size-card: 1.5rem;
+}
+
+[data-theme='light'] {
+  --color-bg-dark1: #f2f2f2;
+  --color-bg-dark2: #ffffff;
+  --color-bg-dark3: #f2f2f2;
+
+  --color-price-card-bg: #e0d8d1;
+  --color-product-card-bg: #374151;
+
+  --color-hover-bg: #d69a59;
+
+  --color-gray: #000000;
+  --color-text-white: black;
+  --color-text-gray: rgb(24, 24, 24);
+  --color-text-gray2: #b9bbbd;
+
+  --color-brand: #f16e03;
+
+  --border-input: rgb(226, 128, 48);
+
+  --margin-header: 70px;
+  --margin-bottom: 55px;
+
+  --font-size-card: 1.5rem;
+}
+
+* {
+  transition: all 0.3s ease-in-out;
 }
 
 body {

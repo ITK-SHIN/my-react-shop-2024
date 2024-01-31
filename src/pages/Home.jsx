@@ -1,6 +1,6 @@
 import React from 'react';
-import Products from '../components/Products';
-import CarouselBox from '../components/Carousel';
+import Products from '../components/Products/Products';
+import CarouselBox from '../components/Carousel/Carousel';
 
 const Home = () => {
   return (

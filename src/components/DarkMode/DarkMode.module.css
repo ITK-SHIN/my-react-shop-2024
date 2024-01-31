@@ -1,0 +1,23 @@
+.dark_mode {
+  display: flex;
+  align-items: center;
+}
+
+.toggle_box {
+}
+
+.dark_mode_input {
+  display: none;
+}
+
+.toggle__moon {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.toggle__sun {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
