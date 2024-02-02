@@ -15,8 +15,8 @@ function App() {
         <AuthContextProvider>
           <Navbar />
           <Outlet />
-          <Footer />
         </AuthContextProvider>
+        <Footer />
       </QueryClientProvider>
     </>
   );

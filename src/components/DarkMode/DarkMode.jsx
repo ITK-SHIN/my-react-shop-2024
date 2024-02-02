@@ -7,8 +7,6 @@ const DarkMode = () => {
   const selectedTheme = localStorage.getItem('selectedTheme');
   const [isDark, setIsDark] = useState(selectedTheme === 'dark');
 
-  if (selectedTheme === null) localStorage.setItem('selectedTheme', 'dark');
-
   const setDarkMode = () => {
     document.querySelector('body').setAttribute('data-theme', 'dark');
     localStorage.setItem('selectedTheme', 'dark');
@@ -19,16 +17,20 @@ const DarkMode = () => {
     localStorage.setItem('selectedTheme', 'light');
   };
 
-  if (selectedTheme === 'light') {
-    setLightMode();
-  }
-
   const toggleTheme = (e) => {
     setIsDark(!isDark);
     if (e.target.checked) setDarkMode();
     else setLightMode();
   };
 
+  console.log(selectedTheme);
+  if (selectedTheme === null) {
+    localStorage.setItem('selectedTheme', 'dark');
+  }
+
+  if (selectedTheme === 'light') {
+    setLightMode();
+  }
   return (
     <div className={styles.dark_mode}>
       <input

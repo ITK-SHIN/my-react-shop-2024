@@ -40,6 +40,20 @@ export default function CarouselBox(props) {
   return (
     <Carousel
       fullHeightHover={true}
+      navButtonsProps={{
+        // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+        style: {
+          backgroundColor: 'transparent',
+          borderRadius: 0,
+        },
+      }}
+      navButtonsWrapperProps={{
+        // Move the buttons to the bottom. Unsetting top here to override default style.
+        style: {
+          bottom: '0',
+          top: 'unset',
+        },
+      }}
       NavButton={({ onClick, className, style, next, prev }) => {
         // Other logic
 
