@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './NewProduct.module.css';
 import { uploadImage } from '../api/uploader.js';
 import { addNewProduct } from '../api/firebase.js';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const NewProduct = () => {
   const [product, setProduct] = useState({});
   const [file, setFile] = useState();
   const [isUploading, setIsUploading] = useState(false); // 업로드 중/ 아닌지 상태
   const [success, setSuccess] = useState(); // 업로드 성공/ 실패 상태
+
+  const queryClient = useQueryClient();
+  const addProduct = useMutation({
+    mutationFn: ({ product, url }) => addNewProduct(product, url),
+    onSuccess: () => queryClient.invalidateQueries(['products']),
+  });
 
   const handleChange = (e) => {
     //e.target이 file인경우, input요소의 files프로퍼티에 fileList객체가 넘어온다.
@@ -32,15 +39,19 @@ const NewProduct = () => {
     uploadImage(file)
       .then((url) => {
         // firebase에 새로운 제품을 추가함
-        console.log(product);
-        addNewProduct(product, url) //
-          .then(() => {
-            setSuccess(' 성공적으로 제품이 추가되었습니다. ');
-            setTimeout(() => {
-              setSuccess(null);
-            }, 5000); // 일정 시간이 지나면 성공 문구 안보이도록
-          });
+        addProduct.mutate(
+          { product, url },
+          {
+            onSuccess: () => {
+              setSuccess(' 성공적으로 제품이 추가되었습니다. ');
+              setTimeout(() => {
+                setSuccess(null);
+              }, 5000); // 일정 시간이 지나면 성공 문구 안보이도록
+            },
+          }
+        );
       })
+
       .finally(() => setIsUploading(false)); // 무조건 적으로 호출
   };
 

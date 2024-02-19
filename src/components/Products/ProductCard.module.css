@@ -11,6 +11,7 @@
   background-color: var(--color-product-card-bg);
   border-radius: 10px;
   width: 20rem;
+  height: auto;
   padding-bottom: 2rem;
   cursor: pointer;
   transition: all ease 1s;

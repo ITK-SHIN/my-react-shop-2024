@@ -17,6 +17,7 @@ const Products = ({ category }) => {
   } = useQuery({
     queryKey: ['products'],
     queryFn: getProducts,
+    staleTime: 1000 * 60 * 2,
   });
 
   const filterIron =
@@ -30,7 +31,7 @@ const Products = ({ category }) => {
     return (
       <>
         {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error}</p>}
+        {error && <p>{error.message}</p>}
         <section>
           {products && <ProductCardList products={filterIron} />}
         </section>
@@ -43,7 +44,7 @@ const Products = ({ category }) => {
       <>
         {console.log(products.filter((product) => product.category === 'iron'))}
         {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error}</p>}
+        {error && <p>{error.message}</p>}
         <section>
           <ul className={styles.productsBox}>
             {products &&
@@ -63,7 +64,7 @@ const Products = ({ category }) => {
     return (
       <>
         {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error}</p>}
+        {error && <p>{error.message}</p>}
         <section>
           {products && <ProductCardList products={filterSpider} />}
         </section>
@@ -78,7 +79,7 @@ const Products = ({ category }) => {
           products.filter((product) => product.category === 'spider')
         )}
         {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error}</p>}
+        {error && <p>{error.message}</p>}
         <section>
           <ul className={styles.productsBox}>
             {products &&
@@ -98,7 +99,7 @@ const Products = ({ category }) => {
     return (
       <>
         {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error}</p>}
+        {error && <p>{error.message}</p>}
         <section>
           {products && <ProductCardList products={filterCaptain} />}
         </section>
@@ -110,7 +111,7 @@ const Products = ({ category }) => {
     return (
       <>
         {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error}</p>}
+        {error && <p>{error.message}</p>}
         <section>
           <ul className={styles.productsBox}>
             {products &&
@@ -129,7 +130,7 @@ const Products = ({ category }) => {
   return (
     <>
       {isLoading && <p>Loading 중 입니다...</p>}
-      {error && <p>{error}</p>}
+      {error && <p>{error.message}</p>}
       <ul>
         {products &&
           products.map((product) => (
