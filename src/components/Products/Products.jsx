@@ -1,9 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
-import { getProducts } from '../../api/firebase';
 import ProductCard from './ProductCard';
 import PropTypes from 'prop-types';
 import ProductCardList from './ProductCardList';
 import styles from './Products.module.css';
+import useProducts from '../hooks/useProducts';
 
 function compare(key) {
   return (a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
@@ -11,14 +10,8 @@ function compare(key) {
 
 const Products = ({ category }) => {
   const {
-    isLoading,
-    error,
-    data: products,
-  } = useQuery({
-    queryKey: ['products'],
-    queryFn: getProducts,
-    staleTime: 1000 * 60 * 2,
-  });
+    productsQuery: { isLoading, error, data: products },
+  } = useProducts();
 
   const filterIron =
     products && products.filter((product) => product.category === 'iron');

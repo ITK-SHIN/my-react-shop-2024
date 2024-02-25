@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import styles from './NewProduct.module.css';
 import { uploadImage } from '../api/uploader.js';
-import { addNewProduct } from '../api/firebase.js';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import useProducts from '../components/hooks/useProducts.jsx';
 
 const NewProduct = () => {
   const [product, setProduct] = useState({});
@@ -10,11 +9,7 @@ const NewProduct = () => {
   const [isUploading, setIsUploading] = useState(false); // 업로드 중/ 아닌지 상태
   const [success, setSuccess] = useState(); // 업로드 성공/ 실패 상태
 
-  const queryClient = useQueryClient();
-  const addProduct = useMutation({
-    mutationFn: ({ product, url }) => addNewProduct(product, url),
-    onSuccess: () => queryClient.invalidateQueries(['products']),
-  });
+  const { addProduct } = useProducts();
 
   const handleChange = (e) => {
     //e.target이 file인경우, input요소의 files프로퍼티에 fileList객체가 넘어온다.
