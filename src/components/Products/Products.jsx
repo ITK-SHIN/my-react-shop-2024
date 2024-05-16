@@ -4,6 +4,7 @@ import ProductCardList from './ProductCardList';
 import styles from './Products.module.css';
 import useProducts from '../hooks/useProducts';
 import { compare } from '../../utils/utils';
+import Loading from '../Loading/Loading';
 
 // 4가지 경우
 // iron / spider / captain / filter_iron , filter_spider , filter_captain
@@ -23,7 +24,7 @@ const Products = ({ category }) => {
   ) {
     return (
       <section>
-        {isLoading && <p>Loading 중 입니다...</p>}
+        {isLoading && <Loading />}
         {error && <p>{error.message}</p>}
         {products && <ProductCardList products={filterProduct} />}
       </section>
@@ -37,7 +38,7 @@ const Products = ({ category }) => {
   ) {
     return (
       <section>
-        {isLoading && <p>Loading 중 입니다...</p>}
+        {isLoading && <Loading />}
         {error && <p>{error.message}</p>}
         <ul className={styles.productsBox}>
           {products &&
@@ -54,7 +55,7 @@ const Products = ({ category }) => {
 
   return (
     <>
-      {isLoading && <p>Loading 중 입니다...</p>}
+      {isLoading && <Loading />}
       {error && <p>{error.message}</p>}
       <ul>
         {products &&
