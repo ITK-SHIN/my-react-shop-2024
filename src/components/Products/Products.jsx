@@ -5,115 +5,50 @@ import styles from './Products.module.css';
 import useProducts from '../hooks/useProducts';
 import { compare } from '../../utils/utils';
 
+// 4가지 경우
+// iron / spider / captain / filter_iron , filter_spider , filter_captain
 const Products = ({ category }) => {
   const {
     productsQuery: { isLoading, error, data: products },
   } = useProducts();
 
-  const filterIron =
-    products && products.filter((product) => product.category === 'iron');
-  const filterSpider =
-    products && products.filter((product) => product.category === 'spider');
-  const filterCaptain =
-    products && products.filter((product) => product.category === 'captain');
+  const filterProduct =
+    products &&
+    products.filter((product) => `filter_${product.category}` === category);
 
-  if (category === 'filter_iron') {
+  if (
+    (category === 'filter_iron') |
+    (category === 'filter_spider') |
+    (category === 'filter_captain')
+  ) {
     return (
-      <>
+      <section>
         {isLoading && <p>Loading 중 입니다...</p>}
         {error && <p>{error.message}</p>}
-        <section>
-          {products && <ProductCardList products={filterIron} />}
-        </section>
-      </>
+        {products && <ProductCardList products={filterProduct} />}
+      </section>
     );
   }
 
-  if (category === 'iron') {
+  if (
+    (category === 'iron') |
+    (category === 'spider') |
+    (category === 'captain')
+  ) {
     return (
-      <>
-        {console.log(products.filter((product) => product.category === 'iron'))}
+      <section>
         {isLoading && <p>Loading 중 입니다...</p>}
         {error && <p>{error.message}</p>}
-        <section>
-          <ul className={styles.productsBox}>
-            {products &&
-              products
-                .filter((product) => product.category === 'iron')
-                .sort(compare('title'))
-                .map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-          </ul>
-        </section>
-      </>
-    );
-  }
-
-  if (category === 'filter_spider') {
-    return (
-      <>
-        {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error.message}</p>}
-        <section>
-          {products && <ProductCardList products={filterSpider} />}
-        </section>
-      </>
-    );
-  }
-
-  if (category === 'spider') {
-    return (
-      <>
-        {console.log(
-          products.filter((product) => product.category === 'spider')
-        )}
-        {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error.message}</p>}
-        <section>
-          <ul className={styles.productsBox}>
-            {products &&
-              products
-                .filter((product) => product.category === 'spider')
-                .sort(compare('title'))
-                .map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-          </ul>
-        </section>
-      </>
-    );
-  }
-
-  if (category === 'filter_captain') {
-    return (
-      <>
-        {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error.message}</p>}
-        <section>
-          {products && <ProductCardList products={filterCaptain} />}
-        </section>
-      </>
-    );
-  }
-
-  if (category === 'captain') {
-    return (
-      <>
-        {isLoading && <p>Loading 중 입니다...</p>}
-        {error && <p>{error.message}</p>}
-        <section>
-          <ul className={styles.productsBox}>
-            {products &&
-              products
-                .filter((product) => product.category === 'captain')
-                .sort(compare('title'))
-                .map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-          </ul>
-        </section>
-      </>
+        <ul className={styles.productsBox}>
+          {products &&
+            products
+              .filter((product) => product.category === category)
+              .sort(compare('title'))
+              .map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+        </ul>
+      </section>
     );
   }
 
