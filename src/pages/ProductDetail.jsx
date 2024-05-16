@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './ProductDetail.module.css';
 import { SlHandbag } from 'react-icons/sl';
@@ -17,8 +17,8 @@ const ProductDetail = () => {
   const [selected, setSelected] = useState(options && options[0]);
   const handleSelect = (e) => setSelected(e.target.value);
 
-  const handleClick = (e) => {
-    //장바구니에 추가하는 코드
+  const handleClick = () => {
+    //장바구니에 추가
     const product = { id, image, title, price, option: selected, quantity: 1 };
     addOrUpdateToCart(uid, product);
   };

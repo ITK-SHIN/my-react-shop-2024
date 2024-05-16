@@ -1,4 +1,3 @@
-import React from 'react';
 import Products from '../components/Products/Products';
 import CarouselBox from '../components/Carousel/Carousel';
 

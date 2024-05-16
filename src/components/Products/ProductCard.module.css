@@ -18,8 +18,9 @@
 }
 
 .card:hover {
-  box-shadow: 0 6px 28px red, 0 5px 5px red;
-  transform: scale(110%) rotate(1deg);
+  box-shadow: 0 6px 28px var(--color-text-gray),
+    0 5px 5px var(--color-text-gray2);
+  transform: scale(102%);
 }
 
 .img {

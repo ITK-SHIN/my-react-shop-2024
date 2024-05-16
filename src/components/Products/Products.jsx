@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 import ProductCardList from './ProductCardList';
 import styles from './Products.module.css';
 import useProducts from '../hooks/useProducts';
-
-function compare(key) {
-  return (a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
-}
+import { compare } from '../../utils/utils';
 
 const Products = ({ category }) => {
   const {
