@@ -1,8 +1,9 @@
 import Spinner from '../../assets/spinner/spin.gif';
+import styles from './Loading.module.css';
 
 const Loading = () => {
   return (
-    <section>
+    <section className={styles.loading}>
       <img src={Spinner} alt="Loading Img" width="5%" />
     </section>
   );

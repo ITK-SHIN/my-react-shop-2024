@@ -4,13 +4,12 @@ import ProductCardList from './ProductCardList';
 import styles from './Products.module.css';
 import useProducts from '../hooks/useProducts';
 import { compare } from '../../utils/utils';
-import Loading from '../Loading/Loading';
 
 // 4가지 경우
 // iron / spider / captain / filter_iron , filter_spider , filter_captain
 const Products = ({ category }) => {
   const {
-    productsQuery: { isLoading, error, data: products },
+    productsQuery: { error, data: products },
   } = useProducts();
 
   const filterProduct =
@@ -24,7 +23,6 @@ const Products = ({ category }) => {
   ) {
     return (
       <section>
-        {isLoading && <Loading />}
         {error && <p>{error.message}</p>}
         {products && <ProductCardList products={filterProduct} />}
       </section>
@@ -38,7 +36,6 @@ const Products = ({ category }) => {
   ) {
     return (
       <section>
-        {isLoading && <Loading />}
         {error && <p>{error.message}</p>}
         <ul className={styles.productsBox}>
           {products &&
@@ -55,7 +52,6 @@ const Products = ({ category }) => {
 
   return (
     <>
-      {isLoading && <Loading />}
       {error && <p>{error.message}</p>}
       <ul>
         {products &&

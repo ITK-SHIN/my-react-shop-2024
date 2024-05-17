@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAuthContext } from '../contexts/AuthContext';
 import { useQuery } from '@tanstack/react-query';
 import { getCart } from '../api/firebase';
