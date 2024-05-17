@@ -4,7 +4,7 @@ import {
   getProducts as fetchProducts,
 } from '../../api/firebase';
 
-export default function useProducts() {
+const useProducts = () => {
   const queryClient = useQueryClient();
 
   const productsQuery = useQuery({
@@ -19,4 +19,6 @@ export default function useProducts() {
   });
 
   return { productsQuery, addProduct };
-}
+};
+
+export default useProducts;

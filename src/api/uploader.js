@@ -1,4 +1,4 @@
-export async function uploadImage(file) {
+export const uploadImage = async (file) => {
   const data = new FormData();
   data.append('file', file);
   data.append('upload_preset', import.meta.env.VITE_FIREBASE_CLOUDINARY_PRESET);
@@ -9,4 +9,4 @@ export async function uploadImage(file) {
   })
     .then((res) => res.json())
     .then((data) => data.url);
-}
+};
