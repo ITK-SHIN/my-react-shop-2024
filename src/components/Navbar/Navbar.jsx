@@ -14,7 +14,7 @@ import DarkMode from '../DarkMode/DarkMode';
 const Navbar = () => {
   const { user, login, logout } = useAuthContext();
 
-  const starangerClickCart = () => {
+  const strangerClickCart = () => {
     alert('로그인 후 이용해 주세요');
   };
 
@@ -71,7 +71,7 @@ const Navbar = () => {
               <span>Logout</span>
             </button>
           )}
-          <Link to="/carts" onClick={!user && starangerClickCart}>
+          <Link to="/carts" onClick={!user && strangerClickCart}>
             <CartStatus />
           </Link>
         </div>
