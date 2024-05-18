@@ -89,7 +89,7 @@ const ProductDetail = () => {
                       {options &&
                         options.map((option, index) => (
                           <option key={index}>
-                            -[필수] 사이즈 선택 - <strong>{option}</strong>
+                            -[필수] 사이즈 선택 - {option}
                           </option>
                         ))}
                     </select>

@@ -6,6 +6,7 @@ import CartItem from '../components/CartItem';
 import PriceCard from '../components/Products/PriceCard';
 import { ImPlus } from 'react-icons/im';
 import { FaEquals } from 'react-icons/fa';
+import Loading from '../components/Loading/Loading';
 
 const SHIPPING = 3000;
 
@@ -16,7 +17,7 @@ const MyCart = () => {
     queryFn: () => getCart(uid),
   });
 
-  if (isLoading) return <p> 🏃‍♂️ 로딩중 입니다 ... 🏃‍♀️</p>;
+  if (isLoading) return <Loading />;
 
   const hasProducts = products && products.length > 0;
   const totalPrice =
@@ -33,6 +34,7 @@ const MyCart = () => {
 
   return (
     <>
+      {isLoading && <Loading />}
       <p className={styles.title}>나의 장바구니</p>
       <section className={styles.mycart_box}>
         {!hasProducts && (

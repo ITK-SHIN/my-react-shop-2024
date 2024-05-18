@@ -23,7 +23,6 @@ const DarkMode = () => {
     else setLightMode();
   };
 
-  console.log(selectedTheme);
   if (selectedTheme === null) {
     localStorage.setItem('selectedTheme', 'dark');
   }

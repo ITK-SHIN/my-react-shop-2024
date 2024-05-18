@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css';
@@ -14,6 +14,7 @@ import ProtectedRoute from './pages/ProtectedRoute.jsx';
 import Captain from './pages/Captain.jsx';
 import Ironman from './pages/IronMan.jsx';
 import SpiderMan from './pages/SpiderMan.jsx';
+import Loading from './components/Loading/Loading.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,9 +23,18 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, path: '/', element: <Home /> },
-      { path: '/ironman', element: <Ironman /> },
-      { path: '/spiderman', element: <SpiderMan /> },
-      { path: '/captain', element: <Captain /> },
+      {
+        path: '/ironman',
+        element: <Ironman />,
+      },
+      {
+        path: '/spiderman',
+        element: <SpiderMan />,
+      },
+      {
+        path: '/captain',
+        element: <Captain />,
+      },
       {
         path: '/products/new',
         element: (
@@ -37,9 +47,11 @@ const router = createBrowserRouter([
       {
         path: '/carts',
         element: (
-          <ProtectedRoute>
-            <MyCart />
-          </ProtectedRoute>
+          <Suspense fallback={<Loading />}>
+            <ProtectedRoute>
+              <MyCart />
+            </ProtectedRoute>
+          </Suspense>
         ),
       },
       {

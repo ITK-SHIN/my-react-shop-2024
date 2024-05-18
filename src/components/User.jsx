@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import styles from './User.module.css';
 
 const User = ({ user: { photoURL, displayName } }) => {
-  console.log(photoURL);
   return (
     <div className={styles.userBox}>
       <img className={styles.userImg} src={photoURL} alt={displayName} />
