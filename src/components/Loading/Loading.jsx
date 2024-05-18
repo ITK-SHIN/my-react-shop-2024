@@ -1,4 +1,4 @@
-import Spinner from '../../assets/spinner/spin.gif';
+import Spinner from '../../assets/spin.gif';
 import styles from './Loading.module.css';
 
 const Loading = () => {
